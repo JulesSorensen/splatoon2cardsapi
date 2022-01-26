@@ -1,37 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API</title>
+    <title>Splatoon 2</title>
+    <link rel="icon" href="s2.ico" />
     <script src="script.js"></script>
-    
+
 </head>
+
 <body>
     <style>
         body {
-            background-color: bisque;
+            background-image: url("https://i.imgur.com/qcT7rY0.jpeg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
         }
 
-        #content {
-            display: flex;
-            flex-direction: row;
+        #splatoon2logo {
+            width: 20%;
         }
-        .champion {
+
+        .center {
             display: flex;
-            text-align: center;
+            align-items: center;
             flex-direction: column;
+            justify-content: center;
+            color: #bdbdbd;
+            width: 100%;
+        }
+
+        .logoP {
+            width: 550px;
+            text-align: center;
+            margin-top: 3px;
+            margin-bottom: 1px;
+        }
+
+        .specie {
+            float: left;
+            width: 195px;
+            height: 340px;
+            text-align: center;
             box-shadow: black 3px 3px 4px 0px;
-            margin: 1px 5px 1px 5px;
+            margin: 10px 5px 1px 5px;
             padding: 10px;
             border-radius: 20px;
             background-color: white;
+
+            background-color: #0281c098;
+            background-size: 0% 100%;
+            transition: background-color .5s;
         }
-        #champImg {
+
+        .newSpecie {
+            float: left;
+            width: 195px;
+            height: 340px;
+            text-align: center;
+            box-shadow: black 3px 3px 4px 0px;
+            margin: 10px 5px 1px 5px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: white;
+
+            background-color: #b3def398;
+            background-size: 0% 100%;
+            transition: background-color .5s;
+        }
+
+        .specie:hover {
+            background-color: #6bc3efd2;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .7) 100%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%;
+            transition: background-size 1s, background-color 1s;
+        }
+
+        #speciePic {
             width: 100px;
             height: 100px;
+            object-fit: contain;
+        }
+
+        .buttonsDiv {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .createDiv {
+            display: flex;
+            flex-direction: column;
+            height: 13.5rem;
+            justify-content: space-around;
+        }
+
+        .createLabels {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+        }
+
+        .mandatoryDiv {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1px;
+            height: 30px;
+        }
+
+        .mandatoryStar {
+            color: #a01b1b;
+            margin-left: 2px;
+        }
+
+        input {
+            border-radius: 5px;
+            color: #9e9d9d;
+            background-image: radial-gradient(100% 100% at 100% 0, #263bda 0, #223092 100%);
+        }
+
+        select {
+            border-radius: 5px;
+            color: #9e9d9d;
+            background-image: radial-gradient(100% 100% at 100% 0, #263bda 0, #223092 100%);
+        }
+
+        /* CSS */
+        button {
+            align-items: center;
+            margin-top: 10px;
+            appearance: none;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono", monospace;
+            height: 28px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s, transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow, transform;
+        }
+
+        button:focus {
+            box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        }
+
+        button:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            box-shadow: #3c4fe0 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+
+        .deleteButton {
+            background-image: radial-gradient(100% 100% at 100% 0, #ff5a5a 0, #f53131 100%);
+        }
+
+        .deleteButton:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a01b1b 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .errorContent {
+            color: #a01b1b;
         }
     </style>
+    <div class="center">
+        <img src="http://gamingway.fr/wp-content/uploads/2017/03/splatoon-2-logo-365x156.png" alt="splatoon2logo"
+            id="splatoon2logo">
+        <p class="logoP">Splatoon 2 card generation site, the creation of characters with a custom image is not possible, the specific characters of the game are automatically generated by default and can not be found again if they are deleted</p>
+        <div id="errorContent"></div>
+    </div>
     <div id="content"></div>
 </body>
+
 </html>

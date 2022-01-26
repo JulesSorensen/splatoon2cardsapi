@@ -1,0 +1,32 @@
+https://swapi.dev/api/
+###
+GET http://127.0.0.1:8000/champion.php
+###
+GET http://127.0.0.1:8000/champions.php
+?name=teemo
+###
+GET http://127.0.0.1:8000/random.php
+###
+POST http://127.0.0.1:8000/addSpecie.php
+Content-Type: application/json
+
+{
+}
+###
+DELETE http://127.0.0.1:8000/deleteSpecie.php
+Content-Type: application/json
+
+{
+    "id": 5
+}
+###
+PUT http://127.0.0.1:8000/editSpecie.php
+Content-Type: application/json
+
+{
+    "name": "Octokling",
+    "specie": "Inkling",
+    "location": "Inkopolis",
+    "age": "20",
+    "picture": "https:\/\/static.wikia.nocookie.net\/videogamefanon\/images\/3\/3a\/Octoling_Boy_JoeTERender.png"
+}
